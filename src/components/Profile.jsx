@@ -1,4 +1,4 @@
-import css from "./Profile.module.css";
+import css from "../components/Profile.module.css";
 import PropTypes from 'prop-types';
 
 
@@ -30,11 +30,14 @@ const Profile = ({ name, tag, location, image, stats }) => {
 };
 
 Profile.propTypes = {
-  name: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  stats: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    stats: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]).isRequired,
 };
 
 export default Profile;

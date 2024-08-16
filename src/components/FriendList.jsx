@@ -1,5 +1,5 @@
-import FriendListItem from "/src/components/FriendListItem/FriendListItem";
-import css from "./FriendList.module.css";
+import FriendListItem from "/src/components/FriendListItem";
+import css from "../components/FriendList.module.css";
 import PropTypes from 'prop-types';
 
 const FriendList = ({ friends }) => {
@@ -19,7 +19,14 @@ const FriendList = ({ friends }) => {
 };
 
 FriendList.propTypes = {
-  friends: PropTypes.string.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
 };
 
 export default FriendList;
